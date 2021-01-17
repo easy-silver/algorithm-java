@@ -30,9 +30,9 @@ public class Q9012 {
                 isVPS = false;
 
             if(isVPS)
-                bw.write("NO");
-            else
                 bw.write("YES");
+            else
+                bw.write("NO");
 
             bw.write("\n");
         }
