@@ -9,28 +9,31 @@ public class Q9012 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int repeat = Integer.parseInt(br.readLine());
         Stack<Character> stack = new Stack<>();
-        boolean isNo;
+        boolean isVPS;
 
         while (repeat-- > 0) {
             String inputString = br.readLine();
-            isNo = false;
+            isVPS = true;
             stack.clear();
             for (char ch : inputString.toCharArray()) {
                 if(ch == '(')
                     stack.push(ch);
                 else
-                if(stack.empty()){
-                    isNo = true;
+                if(stack.isEmpty()){
+                    isVPS = false;
                     break;
                 }
                 else
                     stack.pop();
             }
-            if(isNo || !stack.empty())
+            if (!stack.isEmpty())
+                isVPS = false;
+
+            if(isVPS)
                 bw.write("NO");
-            else {
+            else
                 bw.write("YES");
-            }
+
             bw.write("\n");
         }
         bw.flush();
