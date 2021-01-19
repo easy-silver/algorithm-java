@@ -54,11 +54,9 @@ public class Q1406 {
             }
         }
 
+        // 왼쪽 스택의 값을 오른쪽에 옮기기
         while (!left.isEmpty()) {
-            reversed.push(left.pop());
-        }
-        while (!reversed.isEmpty()) {
-            sb.append(reversed.pop());
+            right.push(left.pop());
         }
         while (!right.isEmpty()) {
             sb.append(right.pop());
