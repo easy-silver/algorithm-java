@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Q10818 {
@@ -17,15 +16,24 @@ public class Q10818 {
         
         int size = Integer.parseInt(br.readLine());
         
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-        Integer[] numberArr = new Integer[size];
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] numberArr = new int[size];
         
         for(int i = 0; i < numberArr.length; i++) {
             numberArr[i] = Integer.parseInt(st.nextToken());
         }
-        Arrays.sort(numberArr);
         
-        sb.append(numberArr[0]).append(" ").append(numberArr[numberArr.length-1]);
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+        
+        for(int target : numberArr) {
+            if(min > target)
+                min = target;
+            
+            if(max < target)
+                max = target;
+        }
+        
+        sb.append(min).append(" ").append(max);
         bw.write(sb.toString());
         
         bw.close();
