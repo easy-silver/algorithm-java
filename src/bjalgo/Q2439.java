@@ -12,26 +12,18 @@ public class Q2439 {
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        //StringBuilder sb = new StringBuilder();
         
         int count = Integer.parseInt(br.readLine());
-        int whitespace = count-1, star = count - whitespace;
         
-        for(int i = 0; i < count; i++) {
-            for(int j = whitespace; j > 0; j--) {
-                //sb.append(" ");
+        for(int i = 1; i <= count; i++) {
+            for(int j = 0; j < count - i; j++) {
                 bw.write(" ");
             }
-            for(int k = 0; k < star; k++) {
-                //sb.append("*");
+            for(int k = 0; k < i; k++) {
                 bw.write("*");
             }
-            whitespace--;
-            star++;
-            //sb.append("\n");
-            bw.newLine();
+            bw.append("\n");
         }
-        //System.out.print(sb);
         bw.flush();
         long et = System.currentTimeMillis();
         System.out.println((et - st)+" ms");
