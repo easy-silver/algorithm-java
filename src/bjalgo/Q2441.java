@@ -24,3 +24,4 @@ public class Q2441 {
         System.out.print(sb);
     }
 }
+
